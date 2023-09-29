@@ -51,7 +51,7 @@ export const latinDictionary: Dictionary = {
     'I set free': 'libero -are -avi',  
     'I announce, I report': 'nuntio -are -avi',  
     'I die, I perish': 'pereo -ire -ii'  ,
-    'I persuade (+dat)': 'persuadeo -ere perseuasi',
+    'I persuade (+dat)': 'persuadeo -ere persuasi',
     'terrified': 'perterritus -a -um',
     'after, when': 'postquam',
     'near': 'prope (+acc)',
