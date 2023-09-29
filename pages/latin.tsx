@@ -2,8 +2,10 @@ import { latinDictionary } from '../lib/dictionary'
 import {useEffect, useState, useRef} from 'react'
 import Layout from '../components/layout'
 
-export default function latin() {
-    const [words, setWords] = useState(Object.keys(latinDictionary)) 
+export default function Latin() {
+    const topics = Object.keys(latinDictionary)
+    const [topic, setTopic] = useState(topics[0])
+    const [words, setWords] = useState(Object.keys(latinDictionary[topic])) 
     const [currentWord, setCurrentWord] = useState('')
     const [msg, setMsg] = useState('')
 
@@ -18,7 +20,7 @@ export default function latin() {
 
     function handleGuess(userGuess: string) { 
         
-        const answer = latinDictionary[currentWord]
+        const answer = latinDictionary[topic][currentWord]
 
         if(userGuess.toLowerCase() === answer.toLowerCase()) { 
             const newWords = words.filter(w => w !== currentWord) 
@@ -36,6 +38,12 @@ export default function latin() {
         handleGuess(userGuess)
     }
 
+    function submitSelect(topic: string){
+        setTopic(topic)
+        setWords(Object.keys(latinDictionary[topic]))
+        getRandomWord()
+    }
+
     useEffect(() => {
         getRandomWord()
     });
@@ -47,6 +55,13 @@ export default function latin() {
                     <p>You finished it!</p>
                 :
                     <>
+                        <select onChange={e => submitSelect(e.target.value)}>
+                        { 
+                            topics.map((topic: string, index: number) => ( 
+                                <option value={topic}>{topic}</option>
+                            ))
+                        }
+                        </select>
                         <p className={msg == "Correct!" ? "correct" : "wrong"}>{msg}</p>
                         <p>Words left: {words.length}</p> 
                         <p>Latin Word: {currentWord}</p> 

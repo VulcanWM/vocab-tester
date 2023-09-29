@@ -3,7 +3,9 @@ import {useEffect, useState, useRef} from 'react'
 import Layout from '../components/layout'
 
 export default function German() {
-    const [words, setWords] = useState(Object.keys(germanDictionary)) 
+    const topics = Object.keys(germanDictionary)
+    const [topic, setTopic] = useState(topics[0])
+    const [words, setWords] = useState(Object.keys(germanDictionary[topic])) 
     const [currentWord, setCurrentWord] = useState('')
     const [msg, setMsg] = useState('')
 
@@ -18,7 +20,7 @@ export default function German() {
 
     function handleGuess(userGuess: string) { 
         
-        const answer = germanDictionary[currentWord]
+        const answer = germanDictionary[topic][currentWord]
 
         if(userGuess.toLowerCase() === answer.toLowerCase()) { 
             const newWords = words.filter(w => w !== currentWord) 
@@ -36,6 +38,12 @@ export default function German() {
         handleGuess(userGuess)
     }
 
+    function submitSelect(topic: string){
+        setTopic(topic)
+        setWords(Object.keys(germanDictionary[topic]))
+        getRandomWord()
+    }
+
     useEffect(() => {
         getRandomWord()
     });
@@ -47,6 +55,13 @@ export default function German() {
                     <p>You finished it!</p>
                 :
                     <>
+                        <select onChange={e => submitSelect(e.target.value)}>
+                        { 
+                            topics.map((topic: string, index: number) => ( 
+                                <option value={topic}>{topic}</option>
+                            ))
+                        }
+                        </select>
                         <p className={msg == "Correct!" ? "correct" : "wrong"}>{msg}</p>
                         <p>Words left: {words.length}</p> 
                         <p>German Word: {currentWord}</p> 
