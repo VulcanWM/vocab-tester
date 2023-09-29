@@ -3,8 +3,7 @@
 html {
   font-family: 'Josefin Sans', sans-serif;
   background: #121212;
-  color: white;
-  font-size: calc(15px + 0.390625vw);
+  color: white; 
 }
 
 #content {
@@ -13,4 +12,12 @@ html {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.wrong {
+  color: #ff0000
+}
+
+.correct {
+  color: #00FF1A;
 }

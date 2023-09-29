@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const siteTitle = "FocusSync";
+const siteTitle = "Vocab Tester";
 
 export default function Layout({ pageTitle, children }) {
   const title = `${siteTitle} - ${pageTitle}`;
