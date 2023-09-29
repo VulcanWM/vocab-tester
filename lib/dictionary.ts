@@ -1,8 +1,8 @@
-interface GermanDictionary {
+interface Dictionary {
     [key: string]: string; 
 }
 
-export const germanDictionary: GermanDictionary = {
+export const germanDictionary: Dictionary = {
     'habit': 'die Angewohnheit(-en)',
     'to get annoyed (about)': 'sich ärgern (über)',
     'to discuss': 'besprechen',
@@ -47,12 +47,37 @@ export const germanDictionary: GermanDictionary = {
     'reliable': 'zuverlässig'
 }
 
-interface LatinDictionary {
-    [key: string]: string;
-}
-
-export const latinDictionary: LatinDictionary = {
-    'cat': 'catus',  
-    'dog': 'canis',  
-    'book': 'liber'   
+export const latinDictionary: Dictionary = {
+    'I set free': 'libero -are -avi',  
+    'I announce, I report': 'nuntio -are -avi',  
+    'I die, I perish': 'pereo -ire -ii'  ,
+    'I persuade (+dat)': 'persuadeo -ere perseuasi',
+    'terrified': 'perterritus -a -um',
+    'after, when': 'postquam',
+    'near': 'prope (+acc)',
+    'although': 'quamquam',
+    'who, which': 'qui quae quod',
+    'who? what?': 'quis? quid?',
+    'because': 'quod',
+    '...back (prefix for verbs)': 're-',
+    'I go back, I come back, I return': 'redeo -ire -ii',
+    'I reply': 'respondeo -ere -i',
+    'senator': 'senator -oris m',
+    'I save, I protect, I keep': 'servo -ari -avi',
+    'across': 'trans (+acc, or as prefix)',
+    '(not question) when where': 'ubi',
+    'wife': 'uxor -oris f',
+    'I sell': 'vendo -ere -idi',
+    'one': 'unus una unum',
+    'two': 'duo duae duo',
+    'three': 'tres n tria',
+    'four': 'quattuor',
+    'five': 'quinque',
+    'six': 'sex',
+    'seven': 'septem',
+    'eight': 'octo',
+    'nine': 'novem',
+    'ten': 'decem',
+    'hundred': 'centum',
+    'thousand': 'mille pl milia'
 }

@@ -1,9 +1,9 @@
-import { germanDictionary } from '../lib/dictionary'
+import { latinDictionary } from '../lib/dictionary'
 import {useEffect, useState, useRef} from 'react'
 import Layout from '../components/layout'
 
-export default function German() {
-    const [words, setWords] = useState(Object.keys(germanDictionary)) 
+export default function latin() {
+    const [words, setWords] = useState(Object.keys(latinDictionary)) 
     const [currentWord, setCurrentWord] = useState('')
     const [msg, setMsg] = useState('')
 
@@ -18,7 +18,7 @@ export default function German() {
 
     function handleGuess(userGuess: string) { 
         
-        const answer = germanDictionary[currentWord]
+        const answer = latinDictionary[currentWord]
 
         if(userGuess.toLowerCase() === answer.toLowerCase()) { 
             const newWords = words.filter(w => w !== currentWord) 
@@ -41,7 +41,7 @@ export default function German() {
     });
 
     return ( 
-        <Layout pageTitle="German">
+        <Layout pageTitle="Latin">
             <div id="content">
                 {words.length == 0 ? 
                     <p>You finished it!</p>
@@ -49,7 +49,7 @@ export default function German() {
                     <>
                         <p className={msg == "Correct!" ? "correct" : "wrong"}>{msg}</p>
                         <p>Words left: {words.length}</p> 
-                        <p>German Word: {currentWord}</p> 
+                        <p>Latin Word: {currentWord}</p> 
                         <input 
                             type="text"
                             ref={inputRef}  
