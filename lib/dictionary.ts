@@ -22,7 +22,7 @@ export const germanDictionary: GermanDictionary = {
     'violin': 'die Geige(-n)',
     'mean': 'gemein',
     'reason': 'der Grund(¨-e)',
-    'helpful': 'hilfsberit',
+    'helpful': 'hilfsbereit',
     'to be interested in': 'sich interessieren für',
     'to take care of, to look after': 'sich kümmern um',
     'to suffer, to stand':  'leiden',
