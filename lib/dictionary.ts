@@ -4,7 +4,7 @@ interface GermanDictionary {
 
 export const germanDictionary: GermanDictionary = {
     'habit': 'die Angewohnheit(-en)',
-    'to get annoyed about': 'sich ärgern (über)',
+    'to get annoyed (about)': 'sich ärgern (über)',
     'to discuss': 'besprechen',
     'relationship': 'die Beziehung(-en)',
     'to break up': 'in die Brüche gehen',
@@ -17,7 +17,7 @@ export const germanDictionary: GermanDictionary = {
     'relaxed': 'entspannt',
     'freedom': 'die Freiheit',
     'circle of friends': 'die Freunddeskreis(-e)',
-    'friendship': 'die Freundschaft',
+    'friendship': 'die Freundschaft(-en)',
     'to feel': 'sich fühlen',
     'violin': 'die Geige(-n)',
     'mean': 'gemein',
