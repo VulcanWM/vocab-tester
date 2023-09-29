@@ -63,7 +63,7 @@ export const latinDictionary: Dictionary = {
     'I go back, I come back, I return': 'redeo -ire -ii',
     'I reply': 'respondeo -ere -i',
     'senator': 'senator -oris m',
-    'I save, I protect, I keep': 'servo -ari -avi',
+    'I save, I protect, I keep': 'servo -are -avi',
     'across': 'trans (+acc, or as prefix)',
     '(not question) when where': 'ubi',
     'wife': 'uxor -oris f',
