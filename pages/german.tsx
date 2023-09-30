@@ -1,4 +1,4 @@
-import { germanDictionary } from '../lib/dictionary'
+import { germanDictionary, inverseGermanDictionary } from '../lib/dictionary'
 import {useEffect, useState, useRef} from 'react'
 import Layout from '../components/layout'
 
@@ -8,19 +8,24 @@ export default function German() {
     const [words, setWords] = useState(Object.keys(germanDictionary[topic])) 
     const [currentWord, setCurrentWord] = useState('')
     const [msg, setMsg] = useState('')
+    const [type, setType] = useState('EtG')
 
     const inputRef = useRef<HTMLInputElement>(null)
 
     function getRandomWord() { 
-        const randomIndex = Math.floor(Math.random() * words.length) 
+        const randomIndex = Math.floor(Math.random() * words.length)
         const randomWord = words[randomIndex] 
         setCurrentWord(randomWord)
         return randomWord
     }
 
     function handleGuess(userGuess: string) { 
-        
-        const answer = germanDictionary[topic][currentWord]
+        var answer;
+        if (type == "EtG"){
+            answer = germanDictionary[topic][currentWord]
+        } else {
+            answer = inverseGermanDictionary[topic][currentWord]
+        }
 
         if(userGuess.toLowerCase() === answer.toLowerCase()) { 
             const newWords = words.filter(w => w !== currentWord) 
@@ -33,14 +38,26 @@ export default function German() {
     }
 
     function handleSubmit() {
+        setMsg("")
         getRandomWord()  
         const userGuess = inputRef.current!.value
         handleGuess(userGuess)
     }
 
     function submitSelect(topic: string){
+        setMsg("")
         setTopic(topic)
         setWords(Object.keys(germanDictionary[topic]))
+        getRandomWord()
+    }
+
+    function submitType(type: string){
+        setType(type)
+        if (type == "EtG"){
+            setWords(Object.keys(germanDictionary[topic]))
+        } else {
+            setWords(Object.keys(inverseGermanDictionary[topic]))
+        }
         getRandomWord()
     }
 
@@ -61,6 +78,10 @@ export default function German() {
                                 <option value={topic}>{topic}</option>
                             ))
                         }
+                        </select>
+                        <select onChange={e => submitType(e.target.value)}>
+                            <option value='EtG'>English to German</option>
+                            <option value="GtE">German to English</option>
                         </select>
                         <p className={msg == "Correct!" ? "correct" : "wrong"}>{msg}</p>
                         <p>Words left: {words.length}</p> 

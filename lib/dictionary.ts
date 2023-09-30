@@ -4,6 +4,10 @@ interface Dictionary {
     }  
 }
 
+interface NestedDictionary {
+    [word: string]: string
+}
+
 export const germanDictionary: Dictionary = { 
     'Beziehungen zu Familie und Freunden': {
         'habit': 'die Angewohnheit(-en)',
@@ -54,6 +58,27 @@ export const germanDictionary: Dictionary = {
         'to look like, to appear': 'aussehen'
     }
 }
+
+function switchKeysAndValues(dictionary: Dictionary): Dictionary {
+    const swappedDictionary: Dictionary = {};
+
+    for (const topic in dictionary) {
+      const topicDictionary = dictionary[topic];
+      const swappedTopicDictionary: NestedDictionary = {};
+
+      for (const [key, value] of Object.entries(topicDictionary)) {
+        swappedTopicDictionary[value] = key;
+      }
+
+      swappedDictionary[topic] = swappedTopicDictionary; 
+    }
+
+    return swappedDictionary;
+  }
+
+export const inverseGermanDictionary = switchKeysAndValues(germanDictionary);
+
+console.log(inverseGermanDictionary)
 
 export const latinDictionary: Dictionary = {
     '7.2': {
