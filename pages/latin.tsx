@@ -36,6 +36,7 @@ export default function Latin() {
         getRandomWord()  
         const userGuess = inputRef.current!.value
         handleGuess(userGuess)
+        inputRef.current!.value = ""
     }
 
     function submitSelect(topic: string){
@@ -46,7 +47,7 @@ export default function Latin() {
 
     useEffect(() => {
         getRandomWord()
-    });
+    }, [currentWord]);
 
     return ( 
         <Layout pageTitle="Latin">
@@ -67,7 +68,12 @@ export default function Latin() {
                         <p>Latin Word: {currentWord}</p> 
                         <input 
                             type="text"
-                            ref={inputRef}  
+                            ref={inputRef} 
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                handleSubmit(); 
+                                }   
+                            }}       
                         />
                         <button    
                             type="submit"    

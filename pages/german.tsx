@@ -68,6 +68,11 @@ export default function German() {
                         <input 
                             type="text"
                             ref={inputRef}  
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                handleSubmit(); 
+                                }   
+                            }}      
                         />
                         <button    
                             type="submit"    
