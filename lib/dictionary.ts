@@ -46,7 +46,7 @@ export const germanDictionary: Dictionary = {
         'to do, to undertake': 'unternehmen',
         'to spoil': 'verdeben',
         'to rely on': 'sich verlassen auf',
-        'to introduce onself, to imagine': 'sich vorstellen',
+        'to introduce oneself, to imagine': 'sich vorstellen',
         'to turn to': 'sich wenden an',
         'important': 'wichtig',
         'content, happy': 'zufrieden',

@@ -59,6 +59,7 @@ export default function German() {
             setWords(Object.keys(inverseGermanDictionary[topic]))
         }
         getRandomWord()
+        inputRef.current!.value = ""
     }
 
     useEffect(() => {
