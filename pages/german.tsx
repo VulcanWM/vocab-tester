@@ -42,6 +42,7 @@ export default function German() {
         getRandomWord()  
         const userGuess = inputRef.current!.value
         handleGuess(userGuess)
+        inputRef.current!.value = ""
     }
 
     function submitSelect(topic: string){
@@ -59,7 +60,6 @@ export default function German() {
             setWords(Object.keys(inverseGermanDictionary[topic]))
         }
         getRandomWord()
-        inputRef.current!.value = ""
     }
 
     useEffect(() => {
